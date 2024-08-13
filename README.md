@@ -1,4 +1,4 @@
-# Fasenium-Discord-Nuker-2024
+# Run setup
 OP DISCORD NUKER BOT BAN ALL DESTROY ALL SERVERS NO ADMIN NEEDED
 
 
