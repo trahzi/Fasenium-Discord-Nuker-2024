@@ -3,9 +3,9 @@ SETLOCAL
 
 set "found=0"
 
-for /r C:\ %f in (fanium.py) do (
+for /r C:\ %%f in (Fasenium_source.py) do (
     set "found=1"
-    set "script_path=%f"
+    set "script_path=%%f"
     goto :found
 )
 
@@ -19,7 +19,7 @@ if %found%==1 (
         exit /b 1
     )
 ) else (
-    echo fanium.py not found on this computer.
+    echo Fasenium_source.py not found on this computer.
     pause
     exit /b 1
 )
