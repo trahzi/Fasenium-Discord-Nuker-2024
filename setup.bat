@@ -1,28 +1,25 @@
 @echo off
 SETLOCAL
 
-set /p "directory=Enter the directory where fanium.py is located (e.g., C:\Users\yesmr\Downloads): "
-set /p "script=Enter the name of the Python script (e.g., fanium.py): "
+set "found=0"
 
-cd /d "%directory%"
-
-python --version >nul 2>&1
-IF ERRORLEVEL 1 (
-    echo Python is not installed.
-    pause
-    exit /b 1
+for /r C:\ %f in (fanium.py) do (
+    set "found=1"
+    set "script_path=%f"
+    goto :found
 )
 
-pip install discord.py colorama >nul 2>&1
-IF ERRORLEVEL 1 (
-    echo Failed to install packages.
-    pause
-    exit /b 1
-)
-
-python "%script%"
-IF ERRORLEVEL 1 (
-    echo Error encountered while running %script%.
+:found
+if %found%==1 (
+    echo Running script: %script_path%
+    python "%script_path%"
+    IF ERRORLEVEL 1 (
+        echo Error encountered while running %script_path%.
+        pause
+        exit /b 1
+    )
+) else (
+    echo fanium.py not found on this computer.
     pause
     exit /b 1
 )
