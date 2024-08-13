@@ -1,6 +1,11 @@
 @echo off
 SETLOCAL
 
+set /p "directory=Enter the directory where fanium.py is located (e.g., C:\Users\yesmr\Downloads): "
+set /p "script=Enter the name of the Python script (e.g., fanium.py): "
+
+cd /d "%directory%"
+
 python --version >nul 2>&1
 IF ERRORLEVEL 1 (
     echo Python is not installed.
@@ -15,11 +20,9 @@ IF ERRORLEVEL 1 (
     exit /b 1
 )
 
-echo Current directory: %CD%
-
-python "%CD%\fanium.py"
+python "%script%"
 IF ERRORLEVEL 1 (
-    echo Error encountered while running fanium.py.
+    echo Error encountered while running %script%.
     pause
     exit /b 1
 )
