@@ -1,3 +1,5 @@
+# go in cmd and type "pip install discord.py colorama" before running this python script
+
 import os
 import sys
 import threading
